@@ -61,7 +61,7 @@ function fetchApi(url){
         let iconName = data.weather[0].icon
         icone.innerHTML = `<img src="./icons/${iconName}.png">`
         let id = data.weather[0].id
-        id = 800
+        //id = 801
         console.log(iconName)
         console.log(url)
         if (id >= 200 && id <= 232){ // Trovoada
