@@ -31,8 +31,8 @@ body{
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     /*background: #f1faee;*/
-    width: 270px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     /*border: 10px solid #1d3557;*/
     /*box-shadow: 5px 5px 10px #457b9d;*/
     border-radius: 15%;
@@ -45,7 +45,7 @@ body{
 
 .grid{
     display: grid;
-    grid-template-columns: 135px 135px;
+    grid-template-columns: 250px 100px;
 }
 
 .relogio{
@@ -55,52 +55,49 @@ body{
     /*color: #1d3557;*/
 }
 
-.dia{
-    font-size: 150%;
-    color: #e63946;
-    text-align: center;
-    padding: 10px;
-}
-
 .data{
-    font-size: 150%;
+    font-size: 30px;
     color: #e63946;
-    margin-left: -135px;
+    margin-left: -250px;
     text-align: center;
     padding: 10px;
 }
 
 .cidade{
-    width: 180px;
-    height: 50px;
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
+    padding: 10px;
+    text-overflow: ellipsis;
     /*color: #1d3557;*/
 }
 
 .icone > img{
-    margin-left: 60px;
-    width: auto;
-    height: 50px;
+    padding: 10px;
+    margin-left: 15px;
+    height: 65px;
 }
 
 .logo{
-    margin-left: 10px;
+    width: 250px;
+    margin-left: 50px;    
 }
 
 .temp{
-    font-size: 150%;
+    font-size: 35px;
     /*color: #1d3557;*/
-    text-align: right;
-    margin-right: -5px;
+    width: 175px;
+    text-align: center;
+
 }
 
 .umidade{
-    font-size: 150%;
+    font-size: 35px;
+    width: 175px;
     /*color: #1d3557;*/
-    text-align: left;
-    margin-left: 15px;
+    text-align: center;
+    margin-left: -75px;
 }
 
 .imgs{
@@ -112,6 +109,6 @@ body{
 
 .imgs > a > img{
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }

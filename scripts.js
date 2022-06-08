@@ -1,5 +1,4 @@
 /* Hora e ano*/
-
 function getHours() {
     let relogio = document.getElementsByClassName('relogio')[0]
     let date = new Date()
@@ -10,12 +9,12 @@ function getHours() {
     let minute = minutes < 10 ? `0${minutes}` : minutes
     let second = seconds < 10 ? `0${seconds}` : seconds
     relogio.innerHTML = `${hour}:${minute}:${second}`
-    if (hours == 19){
+    /*if (hours == 19){
         document.body.style.backgroundImage = 'url("./img/noite.jpg")'
         document.body.style.backgroundSize = '1920px 1280px'
     } else {
         document.getElementsByClassName('.fundo')
-    }
+    }*/
 }
 setInterval (() =>{
     getHours()
@@ -31,7 +30,7 @@ setInterval (() =>{
     today.innerHTML = `${dayName[now.getDay()]}, ${now.getDate()} de ${monName[now.getMonth()]}`
     //${now.getFullYear()}`
 
-    /* Consulta do clima  */
+    /* Consulta da localização  */
 function getUserPosition (){
     let url
     navigator.geolocation.getCurrentPosition((pos) => {
@@ -41,7 +40,25 @@ function getUserPosition (){
     fetchApi(url);
     })     
 }
-getUserPosition();
+getUserPosition()
+
+/*
+function geolocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition)
+    } else {
+        alert('O navagador esta com a localização desativada')
+    }
+}
+function showPosition(pos){
+    let url
+    navigator.geolocation.getCurrentPosition((pos) => {
+        let lat = pos.coords.latitude
+        let long = pos.coords.longitude
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=8976b0eb3f4b9db17efd2dec5afd210b`;
+        fetchApi(url)
+    })
+}*/
 
 /* Imprimir informações do clima */
 function fetchApi(url){
@@ -61,12 +78,12 @@ function fetchApi(url){
         let iconName = data.weather[0].icon
         icone.innerHTML = `<img src="./icons/${iconName}.png">`
         let id = data.weather[0].id
-        //id = 801
-        console.log(iconName)
+        //id = 200
         console.log(url)
+        console.log(getHours(data.hours))
         if (id >= 200 && id <= 232){ // Trovoada
             document.querySelector('#img-fundo').setAttribute('src', './img/trovao.jpg');
-            document.querySelector('.display').style.color = 'black'
+            document.querySelector('.display').style.color = 'white'
         } 
         else if (id >= 300 && id <= 321){ // Chuvisco
             document.querySelector('#img-fundo').setAttribute('src', './img/chuvisco1.jpg');
@@ -91,11 +108,8 @@ function fetchApi(url){
         else if (id == 800){ // Céu limpo dia
             document.querySelector('#img-fundo').setAttribute('src', './img/sol.jpg');
             document.querySelector('.display').style.color = '#edf6f9'
-        } /*
-        else if (id == 800 && hours >= 19 && hours <=7){ // Céu limpo noite
-            document.querySelector('.fundo').style.backgroundImage = 'url("./img/noite.jpg")'
-            document.body.style.backgroundSize = '1920px 1280px'
-        }*/
+        } 
+        
         resizeImage();
 })
     .catch((err) => {
