@@ -27,7 +27,7 @@ body{
 
 
 .display{
-    background: rgba(120, 120, 120, 0.3);
+    background: rgba(53, 53, 53, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     /*background: #f1faee;*/
@@ -57,7 +57,7 @@ body{
 
 .data{
     font-size: 30px;
-    color: #e63946;
+    /*color: #e63946;*/
     margin-left: -250px;
     text-align: center;
     padding: 10px;
@@ -75,7 +75,6 @@ body{
 
 .icone > img{
     padding: 10px;
-    margin-left: 15px;
     height: 65px;
 }
 

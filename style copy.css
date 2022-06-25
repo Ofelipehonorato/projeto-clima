@@ -1,0 +1,96 @@
+html, body, div, span, h1, h2, h3, h4, h5, p, a, font, img, u, ol, ul, li, tr, th, td, dl, dt, dd, img {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Signika', sans-serif;
+    
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    position: absolute;
+    z-index: 999;
+    right: 10%;
+}
+
+.fundo{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.info-dia{
+    display: grid;
+    position: absolute;
+    z-index: 999;
+    top: 10%;
+    left: 10%;
+    grid-template-areas:
+    "cidade icone";
+    grid-template-columns: 150px 50px;
+}
+
+.cidade{
+    grid-area: cidade;
+    font-size: 35px;
+    text-align: center;
+    justify-items: center;
+}
+
+.icone > img {
+    grid-area: icone;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.info-cond{
+    display: grid;
+    position: absolute;
+    z-index: 999;
+    top: 17%;
+    left: 10%;
+    grid-template-areas:
+    "temp umidade vento";
+    grid-template-columns: 120px 100px 100px;
+}
+
+.temp {
+    grid-area: temp;
+    font-size: 25px;
+    text-align: center;
+    justify-items: center;
+}
+
+.umidade {
+    grid-area: umidade;
+    font-size: 25px;
+    text-align: center;
+    justify-items: center;
+}
+
+.vento{
+    grid-area: vento;
+    font-size: 25px;
+    text-align: center;
+    justify-items: center;
+
+}
+
+.umidade > img {
+    font-size: 25px;
+    text-align: center;
+    justify-items: center;
+}

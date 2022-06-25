@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Inconsolata:wght@200;300;400&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Inconsolata:wght@200;300;400&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Relógio Digital</title>
 </head>
 <body>
-        <div class="fundo"><img src='' id='img-fundo'/></div>
+        <div class="fundo">
+            <img src='' id='fundo'/>
+            <video autoplay loop muted id="fundo">
+                <source src='' type="video/mp4" style="height: 1920px; width: 1080px;">
+            </video>
+        </div>
         <div class="display">
             <div class="relogio">Relogio</div>
             <div class="grid">               
