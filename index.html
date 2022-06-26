@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="300">
+<!--    <meta http-equiv="refresh" content="300">-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -10,35 +10,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Inconsolata:wght@200;300;400&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Relógio Digital</title>
+    <title>Clima e tempo</title>
 </head>
 <body>
-        <div class="fundo">
-            <img src='' id='fundo'/>
-            <video autoplay loop muted id="fundo">
-                <source src='' type="video/mp4" style="height: 1920px; width: 1080px;">
-            </video>
+    <header>
+        <img class="logo" src="./img/logo.png" alt="Felipe Honorato"> 
+        <div class="redes">            
+            <a href="https://www.linkedin.com/in/Ofelipehonorato/" target="_blank">
+            <img src="./img/linkedin.png" href="https://www.linkedin.com/in/Ofelipehonorato/" width="50px" alt="linkedin"></a>                
+            <a href="https://github.com/Ofelipehonorato" target="_blank">
+            <img src="./img/github.png" width="50px" alt="github"></a>            
         </div>
-        <div class="display">
-            <div class="relogio">Relogio</div>
-            <div class="grid">               
-                <div class="dia" id="day">  </div>
-                <div class="data" id="today"> - </div>
-                <div class="cidade"> - </div>
-                <div class="icone">
-                    <img src="./icons/unknown.png">
+    </header>
+    
+    <div class="fundo">
+        <img src='./img/fundo.jpg' id='fundo'/>
+    </div>
+
+        <div class="info-dia">
+            <div class="cidade"> Sem acesso a sua localização </div>
+            <div class="icone">  <img src="./icons/unknown.png"></div>
+        </div> 
+
+        <div class="info-cond">
+            <div class="temp"> - </div>
+            <div class="umidade"> - </div> 
+            <div class="vento"> - </div>          
+        </div>         
+
+        <div class="info-semana">
+            <div class="relogio"> - </div>
+                <div class="dia"> - </div>
+                <div class="semana">                
+                    <div class="domingo">D</div>
+                    <div class="segunda">S</div>
+                    <div class="terca">T</div>
+                    <div class="quarta">Q</div>
+                    <div class="quinta">Q</div>
+                    <div class="sexta">S</div>
+                    <div class="sabado">S</div>            
                 </div>
-                <div class="temp"> - </div>
-                <div class="umidade"> - </div>
-                <img class="logo" src="./img/logo.png" alt="Felipe Honorato">  
-                <div class="imgs">           
-                    <a href="https://www.linkedin.com/in/Ofelipehonorato/" target="_blank">
-                    <img src="./img/linkedin.png" href="https://www.linkedin.com/in/Ofelipehonorato/" alt="linkedin"></a>                
-                    <a href="https://github.com/Ofelipehonorato" target="_blank">
-                    <img src="./img/github.png" alt="github"></a>
-                </div>
-            </div>
-        </div>     
+        </div>         
     <script src="scripts.js"></script>
 </body>
 

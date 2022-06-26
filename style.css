@@ -7,8 +7,7 @@ html, body, div, span, h1, h2, h3, h4, h5, p, a, font, img, u, ol, ul, li, tr, t
     text-decoration: none;
     font-family: 'Assistant', sans-serif;
     font-family: 'Inconsolata', monospace;
-    font-family: 'Signika', sans-serif;
-    
+    font-family: 'Signika', sans-serif; 
 }
 
 body{
@@ -16,98 +15,239 @@ body{
     height: 100%;
 }
 
+header{
+    display: grid;
+    position: absolute;
+    z-index: 999;
+    top: 9%;
+    right: 10%;
+}
+
+header > .redes{
+    display: flex;
+    justify-content: center;
+}
+
+.redes > a{
+    padding: 5px;
+}
+
+
 .fundo{
     position: fixed;
-    z-index: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-
-.display{
-    background: rgba(53, 53, 53, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    /*background: #f1faee;*/
-    width: 350px;
-    height: 450px;
-    /*border: 10px solid #1d3557;*/
-    /*box-shadow: 5px 5px 10px #457b9d;*/
-    border-radius: 15%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #1d3557;
-}
-
-.grid{
+.info-dia{
     display: grid;
-    grid-template-columns: 250px 100px;
-}
-
-.relogio{
-    text-align: center;
-    padding: 10px;
-    font-size: 55px;
-    /*color: #1d3557;*/
-}
-
-.data{
-    font-size: 30px;
-    /*color: #e63946;*/
-    margin-left: -250px;
-    text-align: center;
-    padding: 10px;
+    position: absolute;
+    z-index: 999;
+    top: 10%;
+    left: 10%;
+    grid-template-areas:
+    "cidade icone";
+    grid-template-columns: 210px 55px;
+    background: rgb(237, 242, 244, 0.2);
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .cidade{
+    grid-area: cidade;
     display: flex;
-    justify-content: center;
+    font-size: xx-large;
+    text-align: center;
     align-items: center;
-    font-size: 30px;
-    padding: 10px;
-    text-overflow: ellipsis;
-    /*color: #1d3557;*/
+    margin-left: 5px;
 }
 
-.icone > img{
-    padding: 10px;
-    height: 65px;
-}
-
-.logo{
-    width: 250px;
-    margin-left: 50px;    
-}
-
-.temp{
-    font-size: 35px;
-    /*color: #1d3557;*/
-    width: 175px;
+.icone > img {
+    grid-area: icone;
+    width: 50px;
+    height: 50px;
     text-align: center;
-
 }
 
-.umidade{
-    font-size: 35px;
-    width: 175px;
-    /*color: #1d3557;*/
-    text-align: center;
-    margin-left: -75px;
-}
-
-.imgs{
+.info-cond{
+    display: grid;
     position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 999;
+    top: 20%;
+    left: 10%;
+    grid-template-areas:
+    "temp umidade vento";
+    grid-template-columns: 120px 120px 120px;
+    background: rgb(237, 242, 244, 0.2);
+    border-radius: 10px;
+    padding: 5px;
 }
 
-.imgs > a > img{
-    display: inline-block;
-    width: 60px;
-    height: 60px;
+.temp {
+    grid-area: temp;
+    display: inline-flex;
+    font-size: xx-large;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
 }
+
+.umidade {
+    grid-area: umidade;
+    font-size: xx-large;
+    text-align: left;
+    justify-items: left;
+}
+
+.vento{
+    grid-area: vento;
+    font-size: x-large;
+    text-align: center;
+    justify-items: center;
+}
+
+.info-semana{
+    display: grid;
+    position: absolute;
+    z-index: 999;
+    top: 28%;
+    left: 10%;
+    grid-template-columns: auto auto ;
+    background: rgb(237, 242, 244, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.dia{
+    grid-area: dia;
+    display: inline-flex;
+    font-size: x-large;
+    text-align: left;
+    justify-items: left;
+    margin-right: 50px;
+    
+    align-items: baseline;
+}
+
+.semana{
+    grid-area: semana;
+    display: inline-flex;
+    font-size: x-large;
+    text-align: center;
+    justify-content: left;
+    align-items: end;
+}
+.semana > .domingo, .segunda, .terca, .quarta, .quinta, .sexta, .sabado{
+    margin: 10px;
+}
+
+.relogio{
+    grid-area: relogio;
+    font-size: x-large;
+    text-align: right;
+    justify-items: right;
+}
+
+@media screen and (max-width: 375px) {
+    header {
+    height: 180px;
+    display: grid;
+    top: 60%;
+    left: 10vw;
+    background: rgb(237, 242, 244, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+    justify-content: center;
+    }
+
+    .info-cond{
+        grid-template-columns: 85px 85px 120px;
+        left: 10vw;
+        padding: 10px;
+        top: 23%;
+    }
+
+    .info-semana{
+        top: 35%;
+        left: 10vw;
+        padding: 10px;
+    }
+
+    .temp {
+        grid-area: temp;
+        display: inline-flex;
+        font-size: x-large;
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .umidade {
+        grid-area: umidade;
+        font-size: x-large;
+        text-align: left;
+        justify-items: left;
+    }
+    
+    .vento{
+        grid-area: vento;
+        font-size: x-large;
+        text-align: center;
+        justify-items: center;
+    }
+
+  }
+
+  @media screen and (max-width: 750px) {
+    header {
+    height: 180px;
+    display: grid;
+    top: 60%;
+    left: 10vw;
+    background: rgb(237, 242, 244, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+    justify-content: center;
+    }
+
+    .info-cond{
+        grid-template-columns: 85px 85px 120px;
+        left: 10vw;
+        padding: 10px;
+        top: 23%;
+    }
+
+    .info-semana{
+        top: 35%;
+        left: 10vw;
+        padding: 10px;
+    }
+
+    .temp {
+        grid-area: temp;
+        display: inline-flex;
+        font-size: x-large;
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .umidade {
+        grid-area: umidade;
+        font-size: x-large;
+        text-align: left;
+        justify-items: left;
+    }
+    
+    .vento{
+        grid-area: vento;
+        font-size: x-large;
+        text-align: center;
+        justify-items: center;
+    }
+
+  }
+
+

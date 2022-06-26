@@ -1,0 +1,113 @@
+html, body, div, span, h1, h2, h3, h4, h5, p, a, font, img, u, ol, ul, li, tr, th, td, dl, dt, dd, img {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+    font-size: 100%;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-family: 'Signika', sans-serif;
+    
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.fundo{
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.display{
+    background: rgba(53, 53, 53, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /*background: #f1faee;*/
+    width: 350px;
+    height: 450px;
+    /*border: 10px solid #1d3557;*/
+    /*box-shadow: 5px 5px 10px #457b9d;*/
+    border-radius: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1d3557;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 250px 100px;
+}
+
+.relogio{
+    text-align: center;
+    padding: 10px;
+    font-size: 55px;
+    /*color: #1d3557;*/
+}
+
+.data{
+    font-size: 30px;
+    /*color: #e63946;*/
+    margin-left: -250px;
+    text-align: center;
+    padding: 10px;
+}
+
+.cidade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 10px;
+    text-overflow: ellipsis;
+    /*color: #1d3557;*/
+}
+
+.icone > img{
+    padding: 10px;
+    height: 65px;
+}
+
+.logo{
+    width: 250px;
+    margin-left: 50px;    
+}
+
+.temp{
+    font-size: 35px;
+    /*color: #1d3557;*/
+    width: 175px;
+    text-align: center;
+
+}
+
+.umidade{
+    font-size: 35px;
+    width: 175px;
+    /*color: #1d3557;*/
+    text-align: center;
+    margin-left: -75px;
+}
+
+.imgs{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.imgs > a > img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}

@@ -9,6 +9,12 @@ function getHours() {
     let minute = minutes < 10 ? `0${minutes}` : minutes
     let second = seconds < 10 ? `0${seconds}` : seconds
     relogio.innerHTML = `${hour}:${minute}:${second}`
+    /*if (hours == 19){
+        document.body.style.backgroundImage = 'url("./img/noite.jpg")'
+        document.body.style.backgroundSize = '1920px 1280px'
+    } else {
+        document.getElementsByClassName('.fundo')
+    }*/
 }
 setInterval (() =>{
     getHours()
@@ -44,13 +50,31 @@ window.addEventListener('load', () => {
     }
 })
 
+/*
+
+function getUserPosition (){
+    let url
+    navigator.geolocation.getCurrentPosition((pos) => {
+    let lat = pos.coords.latitude
+    let long = pos.coords.longitude
+    let lat = -24.185328146414506
+    let long = -53.027645501892295
+    console.log(lat,long)
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=8976b0eb3f4b9db17efd2dec5afd210b`;
+    fetchApi(url);
+    })     
+}
+
+getUserPosition()
+*/
+
+
 /* Imprimir informações do clima */
 function fetchApi(url){
     let cidade = document.querySelector('.cidade')
     let temp = document.querySelector('.temp')
     let umidade = document.querySelector('.umidade')
     let icone = document.querySelector('.icone')
-    let vento = document.querySelector('.vento')
     fetch(url)
     .then((data) => {
         return data.json();
@@ -58,16 +82,33 @@ function fetchApi(url){
     .then((data) =>{
         let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1)
         cidade.innerHTML = `${data.name}`
-        temp.innerHTML = `<img src="./icons/temperatura.png" width="30px">${tempInCelsius}°C`
-        umidade.innerHTML = `<img src="./icons/umidade.png" width="30px">${data.main.humidity}%`
+        temp.innerHTML = `🌡${tempInCelsius}°C`
+        umidade.innerHTML = `💧${data.main.humidity}%`
         let iconName = data.weather[0].icon
-        icone.innerHTML = `<img src="./icons/${iconName}.png">`
+        icone.innerHTML = `<img src="../icons/${iconName}.png">`
         let id = data.weather[0].id
-        let iconVento = data.wind.speed
-        vento.innerHTML = `<img src="./icons/vento.png" width="30px">
-         ${iconVento}`
-        //id = 500
-        console.log(url)
+        console.log(iconName)
+        if (id >= 200 && id <= 531){ // Chuva
+            document.querySelector('#fundo').setAttribute('src', '../img/chuvisco1.jpg')
+            document.querySelector('.display').style.color = '#edf6f9'
+        }
+        else if (id >= 600 && id <= 622){ // Neve
+            document.querySelector('#fundo').setAttribute('src', '../img/neve1.jpg');
+            document.querySelector('.display').style.color = '#edf6f9'
+        } 
+        else if (id >= 701 && id <= 781){ // Vento
+            document.querySelector('#fundo').setAttribute('src', '../img/vendaval1.jpg');
+            document.querySelector('.display').style.color = '#e5e5e5'
+        } 
+        else if (id >= 801 && id <= 805){ // Nublado 1
+            document.querySelector('#fundo').setAttribute('src', '../img/nublado1.jpg');
+            document.querySelector('.display').style.color = 'black'
+        } 
+        else if (id == 800){ // Céu limpo dia
+            document.querySelector('#fundo').setAttribute('src', '../img/sol.jpg');
+            document.querySelector('.display').style.color = '#edf6f9'
+        } 
+        
         resizeImage();
 })
     .catch((error) => {
